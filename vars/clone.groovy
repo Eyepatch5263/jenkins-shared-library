@@ -1,4 +1,4 @@
-def call(String url, String branch, String Project){
+def call(String url, String branch){
   withCredentials([usernamePassword(credentialsId: 'Github-Credentials', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
                     sh '''
                         # Clone using HTTPS with a PAT
