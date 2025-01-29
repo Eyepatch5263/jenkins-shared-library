@@ -1,4 +1,7 @@
 def call(){
-  sh "docker compose up -d"
+  sh ''' cd codilio &&
+  pwd &&
+  docker compose up -d
+  '''
   echo "Container started successfully."
 }
