@@ -1,7 +1,7 @@
 def call(String Projectname, String branch ){
   withCredentials([usernamePassword(credentialsId: 'Github-Credentials', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
                 
-                sh '''
+                sh """
                 if [ -d "${Projectname}" ]; then
                         rm -rf ${Projectname}
                     fi
@@ -17,6 +17,6 @@ def call(String Projectname, String branch ){
 
                     # Clean up credentials file after cloning
                     rm -f $HOME/.git-credentials
-                '''
+                """
             }
 }
