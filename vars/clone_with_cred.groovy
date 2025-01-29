@@ -1,9 +1,9 @@
-def call(){
+def call(String Projectname, String branch ){
   withCredentials([usernamePassword(credentialsId: 'Github-Credentials', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
                 
                 sh '''
-                if [ -d "codilio" ]; then
-                        rm -rf codilio
+                if [ -d "${Projectname}" ]; then
+                        rm -rf ${Projectname}
                     fi
                     # Prevent leaking credentials
                     rm -f $HOME/.git-credentials
@@ -13,7 +13,7 @@ def call(){
                     git config --global credential.helper 'store --file=$HOME/.git-credentials'
 
                     # Clone repository securely
-                    git clone --branch main https://github.com/eyepatch5263/codilio.git
+                    git clone --branch ${branch} https://github.com/eyepatch5263/${Projectname}.git
 
                     # Clean up credentials file after cloning
                     rm -f $HOME/.git-credentials
