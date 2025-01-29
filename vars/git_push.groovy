@@ -1,4 +1,4 @@
-def call(){
+def call(String Project, String branch){
   withCredentials([gitUsernamePassword(credentialsId: 'Github-Credentials', gitToolName: 'Default')]) {
                         sh '''
                         echo "Checking repository status: "
@@ -11,7 +11,7 @@ def call(){
                         git commit -m "Updated environment variables"
                         
                         echo "Pushing changes to github: "
-                        git push https://github.com/LondheShubham153/Wanderlust-Mega-Project.git main
+                        git push https://github.com/eyepatch5263/${Project}.git ${branch}
                     '''
   }
 }
