@@ -4,5 +4,6 @@ def call(String url, String branch){
                         # Clone using HTTPS with a PAT
                        git clone --branch ${branch} https://$GIT_USERNAME:$GIT_TOKEN@github.com/eyepatch5263/codilio.git
   '''
+  }
  echo "cloned the github repo sucessfully"
 }
