@@ -9,7 +9,6 @@ def call(String Projectname, String branch ){
                     rm -f $HOME/.git-credentials
 
                     # Store credentials for this session
-                    echo "https://$GIT_USERNAME:$GIT_TOKEN@github.com" > $HOME/.git-credentials
                     git config --global credential.helper 'store --file=$HOME/.git-credentials'
 
                     # Clone repository securely
