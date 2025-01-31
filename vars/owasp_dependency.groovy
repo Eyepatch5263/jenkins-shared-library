@@ -1,13 +1,19 @@
 def call() {
-    script {
-        echo "Starting OWASP Dependency-Check Scan..."
-
+    echo "Starting Dependency-Check Scan..."
+    
+    try {
         dependencyCheck additionalArguments: '--scan ./', odcInstallation: "OWASP"
+        echo "Dependency-Check Completed Successfully."
+    } catch (Exception e) {
+        echo "Error running Dependency-Check: ${e.message}"
+        error("Dependency-Check failed")
+    }
 
-        echo "Scan completed. Publishing report..."
-
+    try {
         dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-
-        echo "Dependency-Check Report Published Successfully."
+        echo "Report Published Successfully."
+    } catch (Exception e) {
+        echo "Error publishing report: ${e.message}"
+        error("Publishing Report failed")
     }
 }
