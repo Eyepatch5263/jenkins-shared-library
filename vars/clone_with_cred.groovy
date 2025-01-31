@@ -7,6 +7,8 @@ def call(String Projectname, String branch) {
 
             # Clone the repository
             git clone --branch '${branch}' https://\${GIT_USERNAME}:\${GIT_TOKEN}@github.com/Eyepatch5263/${Projectname}.git
+            cd ${Projectname}
+            npm run install
         """
     }
 }
