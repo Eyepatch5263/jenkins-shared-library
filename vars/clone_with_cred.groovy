@@ -9,7 +9,7 @@ def call(String Projectname, String branch) {
             git clone --branch '${branch}' https://\${GIT_USERNAME}:\${GIT_TOKEN}@github.com/Eyepatch5263/${Projectname}.git
 
             cd ${Projectname}
-            npm install
+            npm install --legacy-peer-deps
         """
     }
 }
