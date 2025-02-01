@@ -10,6 +10,7 @@ def call(String Projectname, String branch) {
 
             cd ${Projectname}
             npm install --legacy-peer-deps
+            git config --global --add safe.directory /var/lib/jenkins/workspace/Codilio-CI/codilio
         """
     }
 }
