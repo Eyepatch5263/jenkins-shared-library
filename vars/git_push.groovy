@@ -1,7 +1,7 @@
 def call(String Project, String branch) {
     withCredentials([gitUsernamePassword(credentialsId: 'Github-Credentials', gitToolName: 'Default', 
                                          usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
-        sh '''
+        sh """
             echo "Checking repository status:"
             git status
 
@@ -17,6 +17,6 @@ def call(String Project, String branch) {
 
             echo "Pushing changes to GitHub:"
             git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/${Project}.git ${branch}
-        '''
+        """
     }
 }
