@@ -10,7 +10,6 @@ def call(String Projectname, String branch) {
 
             cd ${Projectname}
             npm install --legacy-peer-deps
-            checkout scm
         """
     }
 }
