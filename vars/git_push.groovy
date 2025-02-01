@@ -6,7 +6,7 @@ def call(String Project, String branch) {
             echo "Checking repository status:"
             git status
             echo "Configuring Git user:"
-            git config --global user.email "pratyushpragyey.com"
+            git config --global user.email "pratyushpragyey@gmail.com"
             git config --global user.name "Eyepatch5263"
 
             echo "Adding changes to Git:"
